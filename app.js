@@ -19,7 +19,14 @@ app.get('/public/stylesheets/style.css', function(req, res) {
   res.sendFile(path.join(__dirname, '/public/stylesheets/style.css'));
 });
 
+// Permet de servir les ressources au serveur //
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
+
+// Permet de lire le fichier client.js //
+// Route pour le fichier client.js
+app.get('/client/client.js', (req, res) => {
+  res.sendFile(__dirname + '/public/client/client.js');
+});
 
 
 // Route pour servir le fichier JS
